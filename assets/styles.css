@@ -223,19 +223,19 @@ input {
 }
 
 .grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 12px;
+  grid-template-rows: auto auto auto;
 }
 
 .grid[data-orientation='landscape'] {
-  flex-direction: row;
+  grid-template-rows: none;
+  grid-template-columns: 1fr 210px 1fr;
   align-items: stretch;
 }
 
 /* ---------- Panel ---------- */
 .panel {
-  flex: 1 1 0;
   border-radius: var(--radius);
   border: 1px solid var(--stroke);
   background: color-mix(in srgb, var(--panel) 85%, transparent);
