@@ -108,7 +108,10 @@ body {
 .settings__dialog {
   border: none;
   padding: 0;
+  margin: auto;
   background: transparent;
+  max-width: calc(100vw - 28px);
+  overflow: hidden; /* avoid any accidental horizontal scrollbars */
 }
 
 .settings__dialog::backdrop {
@@ -124,6 +127,9 @@ body {
 
 .settings__panel {
   width: min(520px, calc(100vw - 28px));
+  max-width: 100%;
+  box-sizing: border-box;
+
   border-radius: var(--radius-3);
   border: 1px solid var(--panel-edge);
   background: color-mix(in oklab, var(--panel) 88%, transparent);
@@ -190,11 +196,16 @@ body {
 
 .field__select {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
   padding: 12px 12px;
   border-radius: 16px;
   border: 1px solid var(--panel-edge);
   background: rgba(0, 0, 0, 0.15);
   color: var(--text);
+
+  font-size: 16px; /* iOS readability; tightened in small-width media */
 }
 
 :root[data-theme="light"] .field__select {
@@ -673,5 +684,37 @@ body {
 
   .key--equals .key__cap {
     font-size: clamp(16px, 2.2dvh, 20px);
+  }
+}
+
+/* Small widths: keep settings panel from creating horizontal scroll */
+@media (max-width: 390px) {
+  .settings__head {
+    padding: 14px 14px 10px;
+  }
+
+  .settings__title {
+    font-size: 18px;
+  }
+
+  .settings__close {
+    padding: 9px 10px;
+    border-radius: 13px;
+  }
+
+  .settings__body {
+    padding: 12px 14px 14px;
+    gap: 12px;
+  }
+
+  .field__select {
+    padding: 10px 10px;
+    border-radius: 14px;
+    font-size: 14px;
+  }
+
+  .field__label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
   }
 }
