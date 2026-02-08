@@ -1,0 +1,77 @@
+/*
+  Double‑Cal — "Graphite Lab Instrument" aesthetic
+  - Dark theme: graphite, ink, acid chartreuse highlights, warm metallic lines
+  - Light theme: ivory paper, ink, verdigris accents
+*/
+
+:root {
+  --font-display: "Fraunces", serif;
+  --font-ui: "IBM Plex Sans", sans-serif;
+
+  /* Sizing + rhythm */
+  --radius-1: 12px;
+  --radius-2: 18px;
+  --radius-3: 26px;
+  --gap-1: clamp(8px, 1.2dvh, 12px);
+  --gap-2: clamp(10px, 1.6dvh, 16px);
+  --gap-3: clamp(12px, 2.0dvh, 20px);
+
+  --shadow-1: 0 12px 28px rgba(0, 0, 0, 0.35);
+  --shadow-2: 0 8px 0 rgba(0, 0, 0, 0.32);
+  --shadow-3: 0 10px 26px rgba(0, 0, 0, 0.24);
+
+  --ring: 0 0 0 2px rgba(255, 255, 255, 0.12), 0 0 0 6px rgba(185, 255, 83, 0.16);
+
+  --safe-t: env(safe-area-inset-top);
+  --safe-r: env(safe-area-inset-right);
+  --safe-b: env(safe-area-inset-bottom);
+  --safe-l: env(safe-area-inset-left);
+}
+
+:root[data-theme="dark"] {
+  --bg: #0b0e12;
+  --bg2: #0f141c;
+  --panel: rgba(21, 26, 35, 0.88);
+  --panel-edge: rgba(255, 255, 255, 0.08);
+  --text: rgba(245, 247, 255, 0.92);
+  --muted: rgba(245, 247, 255, 0.62);
+  --ghost: rgba(245, 247, 255, 0.12);
+
+  --accent: #b9ff53; /* acid chartreuse */
+  --accent2: #ffb85c; /* warm copper */
+  --danger: #ff5d7a;
+
+  --key: rgba(22, 28, 38, 0.95);
+  --keyEdge: rgba(255, 255, 255, 0.10);
+  --keyTop: rgba(255, 255, 255, 0.07);
+  --keyGlow: rgba(185, 255, 83, 0.16);
+
+  --transfer: rgba(18, 22, 30, 0.90);
+}
+
+:root[data-theme="light"] {
+  --bg: #f6f1e6;
+  --bg2: #f2e8d8;
+  --panel: rgba(255, 255, 255, 0.76);
+  --panel-edge: rgba(15, 16, 20, 0.14);
+  --text: rgba(15, 16, 20, 0.92);
+  --muted: rgba(15, 16, 20, 0.64);
+  --ghost: rgba(15, 16, 20, 0.12);
+
+  --accent: #167a6f; /* verdigris */
+  --accent2: #cf5a2e; /* warm rust */
+  --danger: #b0193b;
+
+  --key: rgba(255, 255, 255, 0.92);
+  --keyEdge: rgba(15, 16, 20, 0.16);
+  --keyTop: rgba(15, 16, 20, 0.06);
+  --keyGlow: rgba(22, 122, 111, 0.14);
+
+  --transfer: rgba(255, 255, 255, 0.74);
+
+  --shadow-1: 0 14px 32px rgba(15, 16, 20, 0.16);
+  --shadow-2: 0 7px 0 rgba(15, 16, 20, 0.18);
+  --shadow-3: 0 12px 26px rgba(15, 16, 20, 0.12);
+
+  --ring: 0 0 0 2px rgba(15, 16, 20, 0.14), 0 0 0 6px rgba(22, 122, 111, 0.20);
+}
