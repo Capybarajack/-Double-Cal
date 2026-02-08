@@ -24,6 +24,8 @@ body {
 body {
   margin: 0;
   overflow: hidden; /* keep the whole app visible */
+  background: #070b12; /* fallback before vars apply */
+  color: rgba(244, 246, 252, 0.94);
   font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -56,6 +58,9 @@ input {
 
 /* ---------- Theme tokens ---------- */
 .app {
+  height: 100dvh;
+  overflow: hidden;
+
   /* layout */
   --padX: 14px;
   --padY: 14px;
@@ -375,17 +380,22 @@ input {
   padding: 10px 12px 12px;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  /* Force rows to distribute within the available panel height.
+     This prevents the keypad from being clipped when the panel height is constrained. */
+  grid-auto-rows: minmax(36px, 1fr);
   gap: clamp(7px, 1.2vh, 10px);
-  align-content: end;
+  align-content: stretch;
+  min-height: 0;
 }
 
 .key {
+  height: 100%;
   border-radius: 16px;
   border: 1px solid var(--kbdStroke);
   background: var(--kbd);
   color: var(--text);
-  min-height: clamp(40px, 6.6vh, 54px);
-  padding: 10px 10px;
+  min-height: 0; /* allow shrinking */
+  padding: 0;
   display: grid;
   place-items: center;
   cursor: pointer;
@@ -441,7 +451,7 @@ input {
   background: var(--eqBg);
   border-color: var(--eqStroke);
   color: #071018;
-  min-height: clamp(44px, 7vh, 56px);
+  min-height: 0;
 }
 
 .key.eq:focus-visible {
