@@ -391,9 +391,16 @@ body {
   gap: clamp(8px, 1.1dvh, 12px);
 }
 
+/* Ensure buttons truly fill their grid cells (prevents bottom-row clipping on small heights) */
+.keys > .key {
+  width: 100%;
+}
+
 .key {
+  /* Height is governed by the grid rows. Avoid hard min-height that could force overflow on small screens. */
   min-width: 44px;
-  min-height: 44px;
+  height: 100%;
+
   border-radius: clamp(12px, 1.7dvh, 18px);
   border: 1px solid var(--keyEdge);
 
@@ -454,6 +461,7 @@ body {
 
 .key--equals {
   width: clamp(56px, 8dvh, 72px);
+  height: 100%;
   border-radius: clamp(14px, 2dvh, 20px);
   border: 1px solid color-mix(in oklab, var(--accent) 42%, var(--keyEdge));
 
@@ -605,21 +613,65 @@ body {
 @media (max-height: 680px) {
   :root {
     --gap-1: 7px;
-    --gap-2: 9px;
+    --gap-2: 8px;
     --radius-3: 20px;
     --shadow-1: 0 10px 22px rgba(0,0,0,.28);
     --shadow-2: 0 6px 0 rgba(0,0,0,.26);
   }
 
+  .app {
+    padding: calc(10px + var(--safe-t)) calc(10px + var(--safe-r)) calc(10px + var(--safe-b))
+      calc(10px + var(--safe-l));
+  }
+
   .calc__header {
-    padding-top: 12px;
+    padding: 10px 12px 0;
   }
 
   .display {
+    margin: 0 12px;
     padding: 10px;
+    min-height: clamp(52px, 8.2dvh, 74px);
+  }
+
+  .keypad {
+    margin: 0 12px 12px;
+    gap: 8px;
   }
 
   .keys {
-    gap: 8px;
+    gap: 7px;
+  }
+
+  .transfer {
+    height: clamp(40px, 5.6dvh, 56px);
+    padding: 8px;
+  }
+
+  .transfer__btn {
+    min-height: 40px;
+    border-radius: 16px;
+    padding: 8px 10px;
+  }
+
+  .settings__gear {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+  }
+}
+
+/* iPhone SE (classic 667px height) and smaller: tighten further, but still no vertical scroll */
+@media (max-height: 667px) {
+  .keys {
+    gap: 6px;
+  }
+
+  .key__cap {
+    font-size: clamp(14px, 2.0dvh, 18px);
+  }
+
+  .key--equals .key__cap {
+    font-size: clamp(16px, 2.2dvh, 20px);
   }
 }
