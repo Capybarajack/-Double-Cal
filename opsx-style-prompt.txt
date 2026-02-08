@@ -1,0 +1,25 @@
+Create a production-quality mobile-first CSS design in assets/styles.css for this Double-Cal app.
+
+Use CSS variables for theming (light/dark) driven by .app[data-theme].
+
+Style the following classes used by the Vue components:
+.layout, .topbar, .brand, .brand__dot, .brand__title, .brand__name, .brand__tag, .icon-btn,
+.grid (portrait/landscape responsive via [data-orientation]),
+.panel, .panel__header, .panel__title, .panel__meta,
+.display, .display__expr, .display__exprText, .display__placeholder, .display__result, .display__value, .display__ghost, .display__error,
+.keypad, .key, .key__label, .key.op, .key.fn, .key.eq,
+.transfer, .transfer__btn, .transfer__btnLabel, .transfer__hint, .transfer__hintGhost,
+.drawer, .drawer__backdrop, .drawer__panel, .drawer__header, .drawer__title, .drawer__section, .drawer__label,
+.radio, .row, .seg, .switch, .switch__ui, .switch__text, .drawer__help, .drawer__footer, .drawer__footerNote.
+
+Requirements:
+1) Looks excellent on phones.
+2) Portrait: panels stacked with transfer between. Landscape: side-by-side.
+3) Clear active panel highlight using [data-active].
+4) Keypad grid with comfortable touch targets (min 44px), subtle depth, pressed states.
+5) Distinct operator/function/equal styling.
+6) Accessibility: focus-visible rings, high contrast, reduced motion.
+7) Safe-area insets.
+8) Avoid generic gradients; prefer clean modern look.
+
+Create the file if missing; do not modify component markup.
